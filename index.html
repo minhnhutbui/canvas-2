@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id ="myCanvas" width ="1000" height ="500" style ="border:2px solid black;"></canvas>
+    <script>
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let y = 50;
+        let dy = 10;
+        function move() {
+            ctx.beginPath();
+            ctx.fillStyle = "pink";
+            ctx.fillRect(50, y, 200, 100);
+            ctx.clearRect(50, y, 200, 100);
+            y += dy;
+            ctx.fillRect(50, y, 200, 100);
+            if (y > 400 || y < 0) {
+                dy = -dy;
+            }
+        }
+        setInterval(move, 100);
+    </script>
+</body>
+</html>
